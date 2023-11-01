@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>editar usuario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container w-50 h-100 p-5">
+        <% if (!autentication) { %>
+            <div class="alert alert-success m-4" role="alert">Inicio de seccion exitoso</div>
+        <% } %>
+        <div class="card m-auto" style="border-radius: 15px;">
+            <div class="card-body p-5">
+                <h2 class="text-uppercase text-center mb-5">Editar informacion del usuario</h2>
+                <form action="/update-user/<%=data.id%>" method="post">
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label class="form-label" for="name">nombre</label>
+                            <input type="text" class="form-control"  value="<%=data.name%>" name="name">
+                        </div>
+                        <div class="col">
+                            <label class="form-label" for="lastname">apellido</label>
+                            <input type="text" class="form-control" value="<%=data.lastname%>" name="lastname">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label class="form-label" for="username">usuario</label>
+                            <input type="text" class="form-control" value="<%=data.username%>" name="username">
+                        </div>
+                        <div class="col">
+                            <label class="form-label" for="password">contraseña</label>
+                            <input type="password" class="form-control" value="" name="password">
+                        </div>
+                    </div>
+        
+                    <div class="form-outline mb-4">
+                        <label class="form-label" for="email">Correo</label>
+                        <input type="email" name="email" value="<%=data.email%>" class="form-control form-control-lg" />
+                    </div>
+                    <div class="d-flex justify-content-center mb-4">
+                        <a href="/" class="btn btn-secondary btn-block btn-lg gradient-custom-4 text-light mr-4">Volver</a>
+                        <button type="submit" class="btn btn-primary btn-block btn-lg gradient-custom-4 text-light">Guardar</button>
+                    </div>
+                    <% if (message) { %>
+                        <div class="alert alert-success" role="alert">
+                            <%= message %>
+                        </div>
+                    <% } else if (errorMessage) { %>
+                        <div class="alert alert-danger" role="alert">
+                            <%= errorMessage %>
+                        </div>
+                    <% } %>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
